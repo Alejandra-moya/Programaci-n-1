@@ -1,0 +1,43 @@
+#include <iostream> //Libreria estandar
+#include <vector> // Librería para manejar arreglos dinámicos (vectores)
+using namespace std;
+
+int main() {
+    // Declaración de un vector para almacenar las calificaciones
+    vector<int> calificaciones(20);
+
+    // Contadores para los rangos
+    int rango1 = 0; // 0 a 5
+    int rango2 = 0; // 6 a 8
+    int rango3 = 0; // 9 a 10
+
+    // Solicitar al usuario las 20 calificaciones
+    cout << "Por favor, ingresa las calificaciones de 20 estudiantes (valores entre 0 y 10):" << endl;
+    for (int i = 0; i < 20; i++) {
+        cout << "Estudiante " << i + 1 << ": ";
+        cin >> calificaciones[i];
+
+        // Validar que las calificaciones estén en el rango correcto
+        while (calificaciones[i] < 0 || calificaciones[i] > 10) {
+            cout << "Calificacion invalida. Ingrese un valor entre 0 y 10: ";
+            cin >> calificaciones[i];
+        }
+    }
+    // Clasificar las calificaciones en los rangos correspondientes
+    for (int i = 0; i < 20; i++) {
+        if (calificaciones[i] >= 0 && calificaciones[i] <= 5) {
+            rango1++;
+        } else if (calificaciones[i] >= 6 && calificaciones[i] <= 8) {
+            rango2++;
+        } else if (calificaciones[i] >= 9 && calificaciones[i] <= 10) {
+            rango3++;
+        }
+    }
+    // Mostrar los resultados
+    cout << "\nTotal de estudiantes en cada rango:" << endl;
+    cout << "De 0 a 5: " << rango1 << " estudiantes." << endl;
+    cout << "De 6 a 8: " << rango2 << " estudiantes." << endl;
+    cout << "De 9 a 10: " << rango3 << " estudiantes." << endl;
+
+    return 0;
+}
