@@ -1,0 +1,33 @@
+#include <iostream> // Librería estándar para entrada/salida
+#include <vector>   // Librería para vectores
+using namespace std;
+
+int main() {
+    vector<int> numeros(10); // Vector para almacenar los 10 números ingresados
+
+    // Mensaje inicial para el usuario
+    cout << "Bienvenidos(as). Por favor, ingrese 10 numeros enteros:" << endl;
+    // Solicitar al usuario los 10 números
+    for (int i = 0; i < 10; i++) {
+        cout << "Numero " << i + 1 << ": ";
+        cin >> numeros[i];
+    }
+    // Revisión y modificación de los números negativos
+    for (int& numero : numeros) { // Iteración por referencia para modificar los elementos directamente
+        if (numero < 0) { 
+            numero = 0; // Si el número es negativo, reemplazarlo con un cero
+        }
+    }
+    // Mostrar el vector modificado
+    cout << "\nEl vector modificado:" << endl;
+    int i = 1; // Contador para enumerar los elementos
+    for (const int& numero : numeros) {
+        cout << "Elemento " << i++ << ": " << numero << endl;
+    }
+
+    return 0; // Finalización el programa
+}
+
+
+
+
